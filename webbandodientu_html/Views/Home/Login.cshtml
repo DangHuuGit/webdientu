@@ -1,0 +1,40 @@
+﻿@model webbandodientu_html.Context.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header" style="margin-top:50px">
+                Login
+            </div>
+            <div class="card-body" style="width:280px">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                <div class="form-group" style="margin-top:20px" ;>
+                    <div  style="float: left">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div style="float:right">
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+                    </div>
+                    </div>
+                <div class="form-group" style="margin-top:20px">
+                    <div style="float: left; margin-top: 20px">
+                        @Html.LabelFor(m => m.Password)
+                    </div>
+                    <div style="float: right; margin-top: 20px">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Login"  style="margin-top:20px;padding:9px 25px; border-radius:5px" />
+                    </div>
+                    }
+                </div>
+        </div>
+    </div>
+</div>
+
